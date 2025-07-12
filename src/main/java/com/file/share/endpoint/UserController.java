@@ -20,6 +20,7 @@ public class UserController {
         try {
             userService.register(user);
             return ResponseEntity.ok("User register successfully");
+
         } catch (RuntimeException e){
             return ResponseEntity.badRequest().body("Error: "+ e.getMessage());
         }

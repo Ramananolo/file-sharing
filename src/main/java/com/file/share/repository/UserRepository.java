@@ -41,8 +41,8 @@ public class UserRepository {
         try (PreparedStatement statement = dbConnector.getConnection().prepareStatement(query)) {
             statement.setString(1, user.getEmail());
             statement.setString(2, user.getPassword());
-
             statement.executeUpdate();
+
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
