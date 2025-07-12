@@ -1,6 +1,7 @@
 package com.file.share.endpoint;
 
 import com.file.share.config.jwt.JwtUtil;
+import com.file.share.endpoint.authRequestBody.AuthRequest;
 import com.file.share.repository.UserRepository;
 import com.file.share.repository.model.User;
 import lombok.AllArgsConstructor;
@@ -24,10 +25,11 @@ public class AuthController {
             String token = jwtUtil.generateToken(user.getEmail());
             return ResponseEntity.ok(new AuthResponse(token));
         }
+
         return ResponseEntity.status(401).body("Email or password invalid");
     }
 
-    public record AuthRequest(String email, String password) {}
+
     public record AuthResponse(String token) {}
 
 }
