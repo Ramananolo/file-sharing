@@ -13,13 +13,11 @@ public class DbConnector {
     private DbProperties dbProperties;
 
     public Connection getConnection() throws SQLException {
-        Connection connection = DriverManager.getConnection(
+         return DriverManager.getConnection(
                 dbProperties.getUrl(),
                 dbProperties.getUser(),
                 dbProperties.getPassword()
         );
-        connection.setAutoCommit(false);
-        return connection;
     }
 
 }
